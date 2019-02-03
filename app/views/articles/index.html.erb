@@ -1,0 +1,28 @@
+<center>
+  <h1>Journal Log</h1>
+<br>
+  <%= link_to 'New Entry', new_article_path %>
+<br>
+<br>
+<br>
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Text</th>
+      <th></th>
+      </tr>
+
+      <% @articles.each do |entry| %>
+      <tr>
+        <td><%= entry.title %></td>
+        <td><%= entry.text %></td>
+        <td><%= link_to 'Show', article_path(entry) %></td>
+        <td><%= link_to 'Edit', edit_article_path(entry) %></td>
+        <td><%= link_to 'Delete', article_path(entry),
+                  method: :delete,
+                  data: { confirm: "Are you sure?"} %></td>
+        </tr>
+        <% end %>
+        </table>
+
+</center>
